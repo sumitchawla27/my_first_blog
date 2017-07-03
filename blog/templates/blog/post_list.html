@@ -22,7 +22,12 @@
 							<div class="date">
 								<p>Published On: {{post.published_date}} </p>
 							</div>
-							<p> {{post.text|linebreaksbr}}</p>
+							
+							{% if "system path" in post.title %}
+   								<p> {{post.text|safe}}</p>
+   							{% else %}
+   								<p> {{post.text|linebreaksbr}}</p>
+							{% endif %}
 						</div>
 					{% endfor %}
 				</div>
